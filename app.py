@@ -104,12 +104,8 @@ with st.sidebar:
     except Exception:
         _default_gemini = os.environ.get("GEMINI_API_KEY", "")
 
-    gemini_key = st.text_input(
-        "Google Gemini API Key (optional)",
-        value=_default_gemini,
-        type="password",
-        help="Enables AI hook headlines. Free key at aistudio.google.com"
-    )
+    gemini_key = _default_gemini
+    st.success("✅ Gemini API configured")
     clip_sec = st.slider("Clip Duration (sec)", 15, 120, 60, 15,
                          help="Length of each extracted short")
     top_n = st.slider("Number of Clips", 1, 8, 5)
